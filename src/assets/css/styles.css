@@ -1,0 +1,200 @@
+/* Agrega estas reglas a tu archivo styles.css */
+  body {
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Asegura que el contenido abarque toda la altura de la ventana */
+  }
+
+  div .custom-div{
+    display: flex;
+    flex-direction: column;
+    height: 100vh !important;; /* Abarca toda la ventana */
+  }
+
+  .custom-header {
+    background-color: #0056b3;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35% !important; /* Ocupa 25% de la altura */
+    width: 100%;
+  }
+
+  .custom-main {
+    flex-grow: 1;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0 !important;
+    max-width: 3340px;
+    width: 100%;
+    height: 50%;
+  }
+
+footer {
+    background-color: #466d94;
+    color: white;
+    height: 10%; /* Ocupa 25% de la altura */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.panel-bienvenida{
+  border-radius: 20px;
+  z-index: 1;
+  background-color: rgba(255, 253, 253, 0.884) !important;
+}
+
+.fondo-imagen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%; /* Asegura que ocupe toda la altura de la ventana */
+  background: url('../images/infraestructura-vial.jpg') no-repeat center center/cover;
+  position: relative;
+}
+
+.fondo-imagen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Sombra con opacidad del 30% */
+  z-index: 1; /* Asegura que esté detrás del contenido */
+}
+
+.fondo-imagen h1, p {
+  position: relative; /* Asegura que el contenido esté encima del overlay */
+  z-index: 2;
+  margin-bottom: 40px;
+}
+
+.container-register{
+  background-color: #ced8e4;
+  width: 30%;
+  padding: 80px;
+  border-radius: 20px;
+}
+
+.container-register h1{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.container-register form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container-register .boton-register{
+  margin-top: 20px
+}
+
+
+  h1 {
+    font-size: 2rem;
+    color: #007bff;
+  }
+  
+  .alert {
+    margin-top: 20px;
+  }
+  
+  .form-label {
+    font-weight: bold;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: #7baadd;
+  }
+
+/* Estilos para la página de inicio de sesión */
+  
+  .form-control {
+    border-radius: 5px;
+    width: 30rem;
+  }
+  
+  
+  .alert-danger {
+    margin-top: 10px;
+  }
+
+/* Estilos para el Panel del Ciudadano */
+
+  .titulo-ciudadano{
+    display: flex;
+    
+    justify-content: flex-start;
+    margin-bottom: 40px !important;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  ul li {
+    margin: 10px 0;
+  }
+  
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  .btn {
+    background-color: #17a2b8;
+    border: none;
+    color: white;
+  }
+  
+  .btn:hover {
+    background-color: #52c0d1;
+  }
+
+  
+/* Estilos para el Historial de Reportes */
+  
+  .list-group-item {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+  
+  .list-group-item h5 {
+    color: #343a40;
+  }
+  
+  .list-group-item p {
+    color: #495057;
+  }
+  
+  .list-group-item small {
+    color: #6c757d;
+  }
+
+  

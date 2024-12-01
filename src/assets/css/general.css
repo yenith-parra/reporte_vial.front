@@ -1,0 +1,47 @@
+/* Estilos generales */
+body {
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Asegura que el contenido abarque toda la altura de la ventana */
+}
+
+/* Distribución de la App */
+.custom-div {
+  display: flex;
+  flex-direction: column;
+  height: 100%;  /* Abarca toda la ventana */
+}
+
+
+/* Estilos con prefijo para evitar conflictos */
+.custom-header {
+  background-color: #0056b3;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25%; /* Ocupa 25% de la altura */
+  width: 100%;
+}
+
+.custom-main {
+  flex-grow: 1;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.custom-footer {
+  background-color: #343a40;
+  color: white;
+  height: 25%; /* Ocupa 25% de la altura */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
