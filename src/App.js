@@ -4,6 +4,7 @@ import Header from './components/Header'; // Barra de navegación
 import Footer from './components/Footer'; // Pie de página
 
 const App = () => {
+  console.log("Se renderiza la App.")
   return (
     <div className="custom-div">
       <Header className="custom-header"/>

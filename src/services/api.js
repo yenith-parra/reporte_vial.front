@@ -31,13 +31,18 @@ export const loginUser  = async (data) => {
   });
 };
 
-export const createReport   = async (data) => {
+export const createReport = async (data) => {
+  const token = localStorage.getItem('token'); // Obtén el token del almacenamiento local
   return await fetchAPI('reportes/', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`, // Agrega el token en el encabezado
+    },
     body: JSON.stringify(data),
   });
 };
+
 
 export const getReports    = async (data) => {
   return await fetchAPI('reportes/', {

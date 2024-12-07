@@ -4,6 +4,7 @@ import { GoogleMap, LoadScript, Marker, useJsApiLoader } from '@react-google-map
 import { createReport } from '../services/api';
 
 const CreateReport = () => {
+
   const [formData, setFormData] = useState({
     tipo_problema: '',
     descripcion: '',
@@ -64,21 +65,29 @@ const CreateReport = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await createReport(formData);
-      setMensaje('Reporte creado exitosamente.');
+  
+    const reporte = {
+      ...formData,
+      ubicacion: { lat: formData.lat, long: formData.long }, // Combina latitud y longitud en un objeto
+    };
 
+    console.log("La información que se envía a la API es : ", reporte)
+  
+    try {
+      const response = await createReport(reporte); // Envía los datos al backend
+      setMensaje('Reporte creado exitosamente: ', response);
+  
       // Redirigir al panel del ciudadano
       setTimeout(() => {
         navigate('/citizen'); // Volver al panel del ciudadano
       }, 1000);
     } catch (error) {
-      setMensaje('Error al crear el reporte');
+      setMensaje('Error al crear el reporte', error);
     }
   };
-
+  
   return (
-    <div className="container">
+    <div className="container report-container">
       <h1>Crear Reporte</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
@@ -86,44 +95,40 @@ const CreateReport = () => {
           <input
             type="text"
             name="tipo_problema"
-            className="form-control"
+            className="form-control input-large"
             value={formData.tipo_problema}
             onChange={handleChange}
             required
           />
         </div>
-
+  
         <div className="mb-3">
           <label htmlFor="descripcion" className="form-label">Descripción</label>
           <textarea
             name="descripcion"
-            className="form-control"
+            className="form-control input-large"
             value={formData.descripcion}
             onChange={handleChange}
             required
           />
         </div>
-
-        {/* Mapa interactivo para obtener la ubicación */}
-        <div className="mb-3">
+  
+        <div className="mb-3 mapa">
           <label className="form-label">Selecciona tu ubicación:</label>
-          <LoadScript googleMapsApiKey="AIzaSyA70RnPKg_vYtNCB1zJKkh7Dua_3q3tj8Y">
+          <LoadScript googleMapsApiKey="YOUR_GOOGLE_MAPS_API_KEY">
             {isLoaded && (
               <GoogleMap
                 mapContainerStyle={{ height: '400px', width: '100%' }}
-                center={markerPosition || { lat: 1.6144, lng: -75.6137 }} // Valor por defecto
+                center={markerPosition || { lat: 1.6144, lng: -75.6137 }}
                 zoom={15}
                 onClick={handleMapClick}
               >
-                {markerPosition && (
-                  <Marker position={markerPosition} draggable={true} />
-                )}
+                {markerPosition && <Marker position={markerPosition} draggable />}
               </GoogleMap>
             )}
           </LoadScript>
         </div>
-
-        {/* Botón para cargar imágenes */}
+  
         <div className="mb-3">
           <label htmlFor="imagenes" className="form-label">Cargar Imágenes</label>
           <input
@@ -131,20 +136,24 @@ const CreateReport = () => {
             accept="image/*"
             multiple
             onChange={handleFileChange}
-            className="form-control"
+            className="form-control input-large"
           />
         </div>
-
-        {/* Mostrar las imágenes seleccionadas */}
+  
         <div className="mb-3">
           <label className="form-label">Imágenes Seleccionadas:</label>
           <div className="d-flex flex-wrap">
             {formData.imagenes.map((image, index) => (
-              <img key={index} src={image} alt={`imagen-${index}`} style={{ width: '100px', height: '100px', marginRight: '10px', marginBottom: '10px' }} />
+              <img
+                key={index}
+                src={image}
+                alt={`imagen-${index}`}
+                className="preview-image"
+              />
             ))}
           </div>
         </div>
-
+  
         <button type="submit" className="btn btn-primary">Crear Reporte</button>
       </form>
       {mensaje && <div className="alert alert-info mt-3">{mensaje}</div>}

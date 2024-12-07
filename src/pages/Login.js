@@ -16,14 +16,17 @@ const Login = () => {
     try {
       // Lógica para autenticar al usuario
       const response = await loginUser(credentials); // Llamada al backend
-      const { token, tipo_usuario, usuario } = response;
-      console.log("El token es: ",{ token, tipo_usuario })
+      const { token, usuario_id, tipo_usuario, nombre } = response;
+      console.log("El token es: ",{ token, usuario_id, tipo_usuario, nombre })
 
       // Guardar el token en el almacenamiento local o cookies
       localStorage.setItem('token', token);
-      localStorage.setItem('user', JSON.stringify(usuario));
+      localStorage.setItem('id', usuario_id);
+      localStorage.setItem('tipo', JSON.stringify(tipo_usuario));
+      localStorage.setItem('user', JSON.stringify(nombre));
 
       // Redirigir según el tipo de usuario
+      window.dispatchEvent(new Event('storage')); // Dispara el evento 'storage'
       if (tipo_usuario === 'ciudadano') {
         navigate('/citizen');
       } else if (tipo_usuario === 'administrador') {

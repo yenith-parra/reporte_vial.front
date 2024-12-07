@@ -13,6 +13,28 @@
     flex-direction: column;
     height: 100vh !important;; /* Abarca toda la ventana */
   }
+  
+ /*Estilos del header*/
+
+ .navbar-brand{
+  font-size: 22px;
+ }
+
+ .usuario-header{
+  color: #ffffff;
+  font-size: 18px;
+ }
+ 
+ .btn-danger{
+  background-color: #df6262 !important;
+  border-radius: 45%;
+  margin-left: 30px;
+ }
+
+ .btn-danger:hover{
+  background-color: #af4343 !important;
+ }
+
 
   .custom-header {
     background-color: #0056b3;
@@ -34,7 +56,8 @@
     margin: 0 !important;
     max-width: 3340px;
     width: 100%;
-    height: 50%;
+    height: 55%;
+    overflow-y: auto; /* Habilita el scroll vertical */
   }
 
 footer {
@@ -45,6 +68,10 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+footer p{
+  margin: auto;
 }
 
 .panel-bienvenida{
@@ -81,28 +108,48 @@ footer {
   margin-bottom: 40px;
 }
 
-.container-register{
-  background-color: #ced8e4;
-  width: 30%;
-  padding: 80px;
-  border-radius: 20px;
-}
-
-.container-register h1{
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.container-register form{
+.container-register {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #ced8e4;
+  width: 30%;
+  max-width: 100%; /* Evita que se salga del contenedor */
+  padding: 80px;
+  border-radius: 20px;
+  box-sizing: border-box; /* Incluye padding y border en el cálculo del ancho */
+}
+
+.container-register h1 {
+margin-bottom: 40px;
+}
+.container-register form {
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Asegura que el formulario se ajuste al contenedor */
+}
+
+.container-register input {
+  width: 100%; /* Hace que los inputs ocupen todo el ancho del contenedor */
+  max-width: 100%;
+  margin-bottom: 15px; /* Espaciado entre los inputs */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; /* Mantiene el padding dentro del ancho */
 }
 
 .container-register .boton-register{
+  align-self: center;
   margin-top: 20px
 }
-
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+  .container-register {
+    width: 90%; /* Más ancho en dispositivos móviles */
+    padding: 40px; /* Reduce el padding para ajustar */
+  }
+}
 
   h1 {
     font-size: 2rem;
@@ -118,6 +165,7 @@ footer {
   }
   
   .btn-primary {
+    align-self: center;
     background-color: #007bff;
     border: none;
   }
@@ -142,8 +190,7 @@ footer {
 
   .titulo-ciudadano{
     display: flex;
-    
-    justify-content: flex-start;
+    justify-content: center;
     margin-bottom: 40px !important;
   }
 
@@ -196,5 +243,41 @@ footer {
   .list-group-item small {
     color: #6c757d;
   }
+
+  .report-container {
+    height: 100%; /* Altura máxima para habilitar el scroll */
+    padding: 40px;
+  }
+
+  .report-container h1{
+    text-align: center;
+  }
+  .report-container form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+  }
+
+  .report-container .input-large{
+    width: 44rem;
+  }
+
+  .report-container .mapa{
+    width: 60%;
+  }
+
+  .preview-image {
+    width: 200px;
+    height: 200px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    object-fit: cover; /* Asegura que la imagen se ajuste correctamente */
+  }
+
+  
+  
+
 
   
