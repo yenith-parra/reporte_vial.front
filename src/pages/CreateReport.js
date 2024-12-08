@@ -115,7 +115,7 @@ const CreateReport = () => {
   
         <div className="mb-3 mapa">
           <label className="form-label">Selecciona tu ubicación:</label>
-          <LoadScript googleMapsApiKey="YOUR_GOOGLE_MAPS_API_KEY">
+          <LoadScript googleMapsApiKey="AIzaSyA70RnPKg_vYtNCB1zJKkh7Dua_3q3tj8Y">
             {isLoaded && (
               <GoogleMap
                 mapContainerStyle={{ height: '400px', width: '100%' }}

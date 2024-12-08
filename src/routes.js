@@ -8,6 +8,7 @@ import AdminPanel from './pages/AdminPanel'; // Panel del administrador
 import Settings from './pages/Settings'; // Configuración y datos
 import CreateReport from './pages/CreateReport';  // Asegúrate de que esta ruta esté correcta
 import ReportHistory from './pages/ReportHistory';  // Asegúrate de que esta ruta esté correcta
+import InteractiveMap from './pages/InteractiveMap';
 
 const AppRoutes = () => {
   return (
@@ -20,6 +21,7 @@ const AppRoutes = () => {
       <Route path="/settings" element={<Settings />} />
       <Route path="/create-report" element={<CreateReport />} /> 
       <Route path="/report-history" element={<ReportHistory />} /> 
+      <Route path="/interactive-map" element={<InteractiveMap />} />
     </Routes>
   );
 };

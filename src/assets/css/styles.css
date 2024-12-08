@@ -188,12 +188,22 @@ margin-bottom: 40px;
 
 /* Estilos para el Panel del Ciudadano */
 
+  .mt-5{
+    margin-top: 0%;
+    height: 90%;
+  }
+
   .titulo-ciudadano{
     display: flex;
     justify-content: center;
-    margin-bottom: 40px !important;
+    margin-bottom: 10px !important;
   }
 
+  .subtitulo-ciudadano{
+    text-align: center;
+    margin-bottom: 60px !important;
+  }
+  
   ul {
     list-style-type: none;
     padding: 0;
@@ -222,12 +232,32 @@ margin-bottom: 40px;
     background-color: #52c0d1;
   }
 
+  @media (max-width: 768px){
+
+    .justify-content-around{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .align-items-center{
+      font-size: 1.5rem !important;
+
+      margin-bottom: 30px;
+      width: 80%;
+    }
+    
+  }
   
 /* Estilos para el Historial de Reportes */
+
+  .list-group{
+    align-items: center;
+  }
   
   .list-group-item {
     background-color: #f8f9fa;
     border: 1px solid #ddd;
+    width: 60%;
     margin-bottom: 10px;
     padding: 10px;
   }
@@ -244,9 +274,30 @@ margin-bottom: 40px;
     color: #6c757d;
   }
 
+  @media (max-width: 768px){
+    .list-group-item{
+      width: 85%;
+    }
+  }
+
+/*Estilos para el mapa interactivo*/
+.map-container {
+  margin: 20px auto;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/*Estilos específicos para el formulario de crear reporte*/  
+
   .report-container {
-    height: 100%; /* Altura máxima para habilitar el scroll */
+    width: 100%;
+    height: auto; /* Altura máxima para habilitar el scroll */
     padding: 40px;
+    margin: 12px;
+    margin-top: 285px;
+    background-color: #e6f1fd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   }
 
   .report-container h1{
@@ -259,12 +310,21 @@ margin-bottom: 40px;
     padding: 30px;
   }
 
+  .report-container .mb-3{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    text-align: start;
+    justify-content: center;
+}
+
   .report-container .input-large{
-    width: 44rem;
+    width: 100%;
   }
 
   .report-container .mapa{
-    width: 60%;
+    width: 80%;
+    border: 0.5px #b5bac0 solid;
   }
 
   .preview-image {
@@ -276,7 +336,32 @@ margin-bottom: 40px;
     object-fit: cover; /* Asegura que la imagen se ajuste correctamente */
   }
 
-  
+  @media (max-width: 768px) {
+    .report-container {
+        padding: 3px;
+        padding-top: 30px;
+        max-width: 100%; /* Ajusta el ancho para móviles */
+        margin: 0 auto; /* Centra el formulario */
+    }
+
+    .report-container .mb-3{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      text-align: center;
+      justify-content: center;
+  }
+
+    .report-container .input-large {
+        width: 100%; /* Abarca todo el ancho del contenedor */
+        font-size: 0.9rem;
+    }
+
+    .preview-image {
+        width: 100px;
+        height: 100px; /* Reduce el tamaño de las imágenes en móviles */
+    }
+}
   
 
 
