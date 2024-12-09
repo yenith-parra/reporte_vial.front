@@ -9,6 +9,7 @@ import Settings from './pages/Settings'; // Configuración y datos
 import CreateReport from './pages/CreateReport';  // Asegúrate de que esta ruta esté correcta
 import ReportHistory from './pages/ReportHistory';  // Asegúrate de que esta ruta esté correcta
 import InteractiveMap from './pages/InteractiveMap';
+import ManageReports from './pages/ManageReports';
 
 const AppRoutes = () => {
   return (
@@ -22,6 +23,7 @@ const AppRoutes = () => {
       <Route path="/create-report" element={<CreateReport />} /> 
       <Route path="/report-history" element={<ReportHistory />} /> 
       <Route path="/interactive-map" element={<InteractiveMap />} />
+      <Route path="/manage-reports" element={<ManageReports />} />
     </Routes>
   );
 };

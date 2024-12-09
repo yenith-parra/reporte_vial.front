@@ -1,23 +1,31 @@
 import React, { useState, useEffect } from 'react';
-import { GoogleMap, Marker, InfoWindow, useJsApiLoader } from '@react-google-maps/api';
+import { GoogleMap, Marker, InfoWindow } from '@react-google-maps/api';
+import { useGoogleMaps } from '../contexts/GoogleMapsContext';
 
 const InteractiveMap = () => {
   const [incidents, setIncidents] = useState([]);
   const [selectedIncident, setSelectedIncident] = useState(null);
 
-  const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: 'AIzaSyA70RnPKg_vYtNCB1zJKkh7Dua_3q3tj8Y', // Reemplaza con tu clave
-  });
+  // Usa el contexto para verificar si Google Maps está cargado
+  const { isLoaded, loadError } = useGoogleMaps();
 
   useEffect(() => {
     // Simulación de datos; puedes reemplazarlo con una llamada a tu API
     const fetchIncidents = async () => {
-      const response = await fetch('http://localhost:5000/api/reportes');
-      const data = await response.json();
-      setIncidents(data);
+      try {
+        const response = await fetch('http://localhost:5000/api/reportes');
+        const data = await response.json();
+        setIncidents(data);
+      } catch (error) {
+        console.error("Error al obtener los incidentes:", error);
+      }
     };
     fetchIncidents();
   }, []);
+
+  if (loadError) {
+    return <div>Error al cargar Google Maps</div>;
+  }
 
   if (!isLoaded) {
     return <div>Cargando mapa...</div>;
@@ -28,7 +36,7 @@ const InteractiveMap = () => {
       <GoogleMap
         mapContainerStyle={{ width: '100%', height: '100%' }}
         center={{ lat: 1.6144, lng: -75.6137 }} // Ajusta la ubicación inicial
-        zoom={12}
+        zoom={14}
       >
         {incidents.map((incident) => (
           <Marker

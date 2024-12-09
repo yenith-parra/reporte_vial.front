@@ -48,7 +48,7 @@ const Header = () => {
       e.preventDefault(); // Previene la navegación
       const storedTipoUsuario = localStorage.getItem('tipo');
       console.log("El tipo de usuario es ", storedTipoUsuario);
-      navigate(storedTipoUsuario === 'ciudadano' ? '/admin' : '/citizen'); // Redirige al panel correspondiente
+      navigate(storedTipoUsuario === 'ciudadano' ? '/citizen' : '/admin'); // Redirige al panel correspondiente
     }
   };
 
@@ -73,7 +73,7 @@ const Header = () => {
             {usuario ? (
               <>
                 <li className="nav-item">
-                  <span className="nav-link usuario-header">Bienvenido, {usuario}</span>
+                  <span className="nav-link usuario-header">Bienvenid@, {usuario}</span>
                 </li>
                 <li className="nav-item">
                   <button onClick={handleLogout} className="btn btn-danger">Cerrar Sesión</button>

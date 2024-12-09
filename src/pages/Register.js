@@ -24,9 +24,13 @@ const Register = () => {
       console.log('Datos enviados al backend:', userData);
       const response = await registerUser(userData);
       setMensaje(response.mensaje);
+      console.log("El usuario es: ", response.nombre );
 
+      // Guardar el token en el almacenamiento local o cookies
+      localStorage.setItem('user', JSON.stringify(response.nombre));
       // Redirigir al Panel del Ciudadano
       setTimeout(() => {
+        window.dispatchEvent(new Event('storage')); // Dispara el evento 'storage'
         navigate('/citizen');
       }, 1000); // Agregar un pequeño retraso para mostrar el mensaje
     } catch (error) {
